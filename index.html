@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miro's Birthday Quest</title>
+<meta name="description" content="You're invited to Miro's birthday party on Sunday, October 25 at 11:00 AM at Indian Boundary Park.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #10261c;
+    --forest-light: #1b3d2d;
+    --gold: #e8c04a;
+    --gold-deep: #a97c1a;
+    --parchment: #f1e4c3;
+    --ink: #2b2112;
+    --heart: #c93a3a;
+    --display: "Cinzel Decorative", Georgia, serif;
+    --body: "Alegreya", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--parchment);
+    background:
+      radial-gradient(ellipse at 50% 0%, var(--forest-light) 0%, var(--forest) 60%) fixed;
+    min-height: 100vh;
+  }
+  a { color: var(--gold); }
+  a:focus-visible, button:focus-visible, iframe:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 3.5rem 1.25rem 2rem;
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+  .triforce {
+    width: 128px;
+    height: auto;
+    filter: drop-shadow(0 0 18px rgba(232, 192, 74, .55));
+    animation: glow 3.6s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(232, 192, 74, .35)); }
+    50%      { filter: drop-shadow(0 0 26px rgba(232, 192, 74, .85)); }
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(2.2rem, 8vw, 3.8rem);
+    line-height: 1.1;
+    color: var(--gold);
+    margin: 1.25rem 0 .5rem;
+    text-shadow: 0 2px 0 var(--gold-deep);
+  }
+  .tagline {
+    font-style: italic;
+    font-size: 1.35rem;
+    margin: 0;
+    opacity: .92;
+  }
+  .hearts { color: var(--heart); letter-spacing: .35em; margin: 1.25rem 0 0; font-size: 1.4rem; }
+
+  /* Quest details */
+  main { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin: 2.5rem 0 1rem;
+    text-align: center;
+  }
+  .details { list-style: none; margin: 0; padding: 0; }
+  .details li {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(232, 192, 74, .3);
+  }
+  .details li:first-child { border-top: 1px solid rgba(232, 192, 74, .3); }
+  .details .label {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 1rem;
+    padding-top: .15rem;
+  }
+  .details .value strong { font-weight: 700; color: #fff6dc; }
+  .details .note { display: block; opacity: .8; font-size: 1.05rem; }
+
+  /* RSVP */
+  .rsvp-frame {
+    background: var(--parchment);
+    border: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: .5rem;
+    box-shadow: 0 0 0 4px var(--forest), 0 0 0 6px var(--gold-deep), 0 16px 40px rgba(0,0,0,.45);
+  }
+  .rsvp-frame iframe {
+    display: block;
+    width: 100%;
+    height: 760px;
+    border: 0;
+    background: transparent;
+  }
+  .rsvp-note {
+    text-align: center;
+    font-size: 1.05rem;
+    opacity: .85;
+    margin-top: 1.25rem;
+  }
+  .setup-warning {
+    display: none;
+    color: var(--ink);
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 0 1.25rem 3rem;
+    font-style: italic;
+    opacity: .75;
+  }
+
+  @media (max-width: 520px) {
+    .details li { grid-template-columns: 1fr; gap: .15rem; }
+    .rsvp-frame iframe { height: 820px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .triforce { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="triforce" viewBox="0 0 100 88" role="img" aria-label="Golden triangle emblem">
+    <polygon points="50,2 74,44 26,44" fill="#e8c04a"/>
+    <polygon points="26,44 50,86 2,86" fill="#e8c04a"/>
+    <polygon points="74,44 98,86 50,86" fill="#e8c04a"/>
+  </svg>
+  <h1>Miro's Birthday Quest</h1>
+  <p class="tagline">Heroes of all ages are summoned to Indian Boundary Park.</p>
+  <p class="hearts" aria-hidden="true">&#9829; &#9829; &#9829;</p>
+</header>
+
+<main>
+  <h2>Quest Details</h2>
+  <ul class="details">
+    <li>
+      <span class="label">When</span>
+      <span class="value"><strong>Sunday, October 25</strong> at <strong>11:00 AM</strong></span>
+    </li>
+    <li>
+      <span class="label">Where</span>
+      <span class="value">
+        <strong>Indian Boundary Park</strong>, Chicago
+        <span class="note"><a href="https://www.google.com/maps/search/?api=1&amp;query=Indian+Boundary+Park+Chicago" target="_blank" rel="noopener">Open in maps</a></span>
+      </span>
+    </li>
+    <li>
+      <span class="label">Provisions</span>
+      <span class="value"><strong>Pizza</strong> will be served for every adventurer.</span>
+    </li>
+    <li>
+      <span class="label">Gear</span>
+      <span class="value">Dress warm. Late October in Chicago can be chilly outdoors.</span>
+    </li>
+  </ul>
+
+  <h2 id="rsvp">Will You Join the Party?</h2>
+  <div class="rsvp-frame">
+    <iframe id="rsvp-form" title="RSVP form" loading="lazy">Loading RSVP form...</iframe>
+    <div class="setup-warning" id="setup-warning">
+      The RSVP form is not connected yet. Paste your Google Form embed link into <code>FORM_EMBED_URL</code> in this file.
+    </div>
+  </div>
+  <p class="rsvp-note">
+    After you submit, use "Edit your response" on the confirmation screen to change your RSVP later.
+    If the form doesn't load, <a id="form-fallback" href="#" target="_blank" rel="noopener">open it in a new tab</a>.
+  </p>
+</main>
+
+<footer>See you on the field!</footer>
+
+<script>
+  // 1. In Google Forms: Send > "<>" (embed) tab > copy the src URL from the code.
+  // 2. Paste it between the quotes below. It looks like:
+  //    https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
+  const FORM_EMBED_URL = "PASTE_YOUR_GOOGLE_FORM_EMBED_URL_HERE";
+
+  const frame = document.getElementById("rsvp-form");
+  const warning = document.getElementById("setup-warning");
+  const fallback = document.getElementById("form-fallback");
+
+  if (FORM_EMBED_URL.startsWith("https://docs.google.com/forms/")) {
+    frame.src = FORM_EMBED_URL;
+    fallback.href = FORM_EMBED_URL.replace("?embedded=true", "").replace("&embedded=true", "");
+  } else {
+    frame.style.display = "none";
+    warning.style.display = "block";
+    fallback.parentElement.style.display = "none";
+  }
+</script>
+</body>
+</html>
